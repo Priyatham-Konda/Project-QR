@@ -4,7 +4,7 @@ from pyzbar.pyzbar import decode
 import qrgenerator 
 import tkinter
 from tkinter import *                                       # type: ignore
-from PIL import Image
+from PIL import ImageTk, Image
 from tkinter import ttk
 
 def windowqrgen():
@@ -32,8 +32,8 @@ def windowqrgen():
             b.pack()
             canvas = tkinter.Canvas(newwind, width = 500, height = 325)  
             canvas.pack()  
-            img = Image.open("qr-img1.jpg")
-            canvas.create_image(20, 20, anchor=NW, image=img)
+            img = ImageTk.PhotoImage(Image.open("qr-img1.jpg"))      # type: ignore
+            canvas.create_image(100, 20, anchor = NW,image = img)
 
 
         elif(content == ""):
